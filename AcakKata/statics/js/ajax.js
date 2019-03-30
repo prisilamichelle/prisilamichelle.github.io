@@ -11,6 +11,7 @@ function newAjax() {
             try {
                 ajax = new ActiveXObject("Microsoft.XMLHTTP");
             } catch (e) {
+                // Something went wrong
                 alert("Sorry, your browser does not support AJAX.");
                 return false;
             }
@@ -19,12 +20,11 @@ function newAjax() {
     return ajax;
 }
 
-function requestPost(url, data=null, success=null, error=defaultOnError) {
+function requestGet(url, data=null, success=null, error=defaultOnError) {
     let ajax = newAjax();
     setOnReadyStateChange(ajax, success, error);
-    ajax.open('POST', url, true);
-    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    ajax.send(data);
+    ajax.open('GET', url, true);
+    ajax.send();
     return ajax;
 }
 
