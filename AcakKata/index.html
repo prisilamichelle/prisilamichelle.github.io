@@ -71,12 +71,14 @@
             function shuffleWord(word) {
                 let i = 0, j = 0, temp = null;
                 let wordarray = word.split("");
-                for(i = wordarray.length - 1; i > 0; i--) {
-                    j = Math.floor(Math.random() * (i + 1));
-                    temp = wordarray[i];
-                    wordarray[i] = wordarray[j];
-                    wordarray[j] = temp;
-                }
+                do {
+                    for(i = wordarray.length - 1; i > 0; i--) {
+                        j = Math.floor(Math.random() * (i + 1));
+                        temp = wordarray[i];
+                        wordarray[i] = wordarray[j];
+                        wordarray[j] = temp;
+                    }
+                } while (wordarray.join("") === word);
                 return wordarray.join("");
             }
     
