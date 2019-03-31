@@ -1,35 +1,26 @@
 body {
     margin: 0px;
     height: 100vh;
-    background-image: url(../img/background.jpg);
+    background: linear-gradient(#fcbb6d,#d8737f,#ab6c82,#685d79,#475c7a);
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: "Georgia", serif;
 }
 
 #main h1 {
-    color: #ffffff;
+    color: white;
     font-size: 4em;
     margin-top: 100px;
     text-align: center;
 }
 
 #main h2 {
-    color: #f26600;
-    /*font-size: 2.4em;*/
-    margin: 25px;
-    margin-bottom: 10px;
-}
-
-#main h3 {
-    color: #f26600;
-    font-size: 4em;
-    margin: 33px;
-    margin-bottom: 0;
+    color: white;
 }
 
 .center {
     position: relative;
-    margin: 0px auto;
+    margin: 15% auto;
 }
 
 .center.small {
@@ -42,31 +33,49 @@ body {
     min-width: 720px;
 }
 
+table {
+    /*border: solid;*/
+    width: 100%;
+}
+
+#input-form {
+    padding-top: 20px;
+}
+
 #input-word {
     width: 100%;
+    background: rgba(0,0,0,0.5);
     border: 1.5px solid #898989;
     border-radius: 4px; 
     padding: 8px;
     font-size: 1.125em;
     box-sizing: border-box;
-    opacity: 0.3;
+    opacity: 0.6;
 }
 
 #input-word:focus {
     outline: none;
     border: 1.5px solid #f26600;
-    border-radius: 4px; 
-    opacity: 0.4;
+    border-radius: 4px;
+    opacity: 1;
+    color: white;
 }
 
 #input-word::placeholder {
-    color: black;
-    opacity: unset;
+    color: white;
 }
 
 #box-input > #failure-notif {
     text-align: center;
     color: red;
+    font-size: 1.5em; 
+    margin-top: 10%;
+}
+
+span {
+    color: white;
+    font-size: 1.8em;
+    /*text-shadow: 1px 1px 0px rgba(0,0,0,0.5);*/
 }
 
 #btn-enter {
@@ -76,7 +85,7 @@ body {
 
 .btn-primary {
     color: #ffffff;
-    background: #179E63;
+    background: rgba(0,0,0,0.5);
     border: none;
     padding: 7px 30px;
     font-size: 1.15em;

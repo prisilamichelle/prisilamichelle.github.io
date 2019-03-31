@@ -3,21 +3,28 @@
     <head>
         <title>Game Acak Kata</title>
         <link rel="stylesheet" type="text/css" href="statics/css/home.css">
+        <meta charset="utf-8"/>
     </head>
     <body>
         <div id="main">
             <div id="box-input" class="center small">
                 <h1>Acak Kata</h1>
-                <span>Tebak kata :</span>
-                <span id="shuffled-word"></span>
 
-                <form id="input-form" action="controller.php" method="POST" autocomplete="off">
-                    <p>Jawab : </p>
-                    <input id="input-word" type="text" name="input-word" placeholder="Masukkan jawaban...">
+                <form id="input-form" autocomplete="off">
+                    <table>
+                        <tr>
+                            <td><span>Tebak kata :</span></td>
+                            <td><span id="shuffled-word"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Jawab :</span></td>
+                            <td><input id="input-word" type="text" name="input-word" placeholder="Masukkan jawaban..."></td>
+                        </tr>
+                    </table>
                     <button id="btn-enter" class="btn-primary" type="button" onclick="checkInput()" >Enter</button>
                 </form>
 
-                <div id="failure-notif" class="box-center"></div>
+                <div id="failure-notif"></div>
                 <div id="status"></div>
             </div>
         </div>
