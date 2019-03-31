@@ -38,12 +38,12 @@
             </div>
         </div>
         <div id="end-game">
-            <span id="game-over"></span>
+            <span id="end-status"></span>
             <span>Score :</span><span id="final-score"></span>
         </div>
         <script src="statics/js/ajax.js"></script>
         <script>
-            let score, life, correctword, responsearray;
+            let score, life, correctword, responsearray, index;
             window.onload = function() {
                 score = 0;
                 document.getElementById('score').innerHTML = score;
@@ -55,6 +55,7 @@
                     null,
                     function(response) {
                         responsearray = response.split(",");
+                        responsearray[responsearray.length-1] = responsearray[responsearray.length-1].trim();
                         correctword = pickRandomWord(responsearray);
                         document.getElementById('shuffled-word').innerHTML = shuffleWord(correctword);
                     }
@@ -62,7 +63,7 @@
             };
     
             function pickRandomWord(array) {
-                let index = Math.floor(Math.random() * array.length);
+                index = Math.floor(Math.random() * array.length);
                 return array[index];
             }
             
@@ -107,8 +108,13 @@
             }
     
             function updateWord() {
-                correctword = pickRandomWord(responsearray);
-                document.getElementById('shuffled-word').innerHTML = shuffleWord(correctword);
+                responsearray.splice(index,1);
+                if (responsearray.length) {
+                    correctword = pickRandomWord(responsearray);
+                    document.getElementById('shuffled-word').innerHTML = shuffleWord(correctword);
+                } else {
+                    endgame(true,score);
+                }
             }
     
             function checkInput() {
@@ -133,17 +139,21 @@
                 }
             }
 
-            function endgame(finalscore) {
+            function endgame(win,finalscore) {
                 document.getElementById('main').style.display = "none";
                 document.getElementById('end-game').style.display = "block";
-                document.getElementById('game-over').innerHTML = "GAME OVER!";
                 document.getElementById('final-score').innerHTML = finalscore;
+                if (win) {
+                    document.getElementById('end-status').innerHTML = "YOU WIN!";
+                } else {
+                    document.getElementById('end-status').innerHTML = "GAME OVER!";
+                }
             }
     
             function updateLife() {
                 life = life - 1;
                 if (life === 0) {
-                    endgame(score);
+                    endgame(false,score);
                 } else {
                     document.getElementById('life').innerHTML = life;
                 }
