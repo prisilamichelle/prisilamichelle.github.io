@@ -7,6 +7,22 @@ body {
     font-family: "Georgia", serif;
 }
 
+#end-game {
+    line-height: 100vh;
+    text-align: center;
+    display: none;
+}
+
+#end-game span {
+    color: white;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+#game-over {
+    font-size: 4em;
+}
+
 #main h1 {
     color: white;
     font-size: 4em;
@@ -34,8 +50,16 @@ body {
 }
 
 table {
-    /*border: solid;*/
     width: 100%;
+}
+
+table.number {
+    table-layout: fixed;
+    font-size: 1.2em;
+}
+
+table.number tr td:last-child{
+    width: 100px;
 }
 
 #input-form {
@@ -76,28 +100,36 @@ table {
 span {
     color: white;
     font-size: 1.8em;
-    /*text-shadow: 1px 1px 0px rgba(0,0,0,0.5);*/
 }
 
 #btn-enter {
-    margin-top: 20px;
+    background: #179e63;
     float: right;
+    border-color:  #179e63;
+}
+
+#btn-enter:hover {
+    background: white;
+    color: #179e63;
+}
+
+#btn-skip {
+    background: #f26600;
+    border-color:  #f26600;
+}
+
+#btn-skip:hover {
+    background: white;
+    color: #f26600;
 }
 
 .btn-primary {
     color: #ffffff;
-    background: rgba(0,0,0,0.5);
-    border: none;
+    margin-top: 20px;
+    outline: none;
+    border: solid;
     padding: 7px 30px;
     font-size: 1.15em;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.btn-primary:hover {
-    background: #f26600;
-}
-
-.btn-primary:focus {
-    outline: none;
 }
